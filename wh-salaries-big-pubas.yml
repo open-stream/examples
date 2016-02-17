@@ -1,0 +1,26 @@
+description: Has some fun with the "Position Titles" in the WH salary report
+
+
+steps:
+  - transform: soda-reader
+    inputs:
+      endpoint: https://open.whitehouse.gov/resource/9j92-xfdk.json
+
+  - transform: regexp
+    inputs:
+      fieldname: position_title
+      match: DIRECTOR
+      replace: GRAND PUBA
+
+  - transform: regexp
+    inputs:
+      fieldname: position_title
+      match: ASSISTANT
+      replace: MINION
+
+  - transform: regexp
+    inputs:
+      fieldname: position_title
+      match: DEPUTY
+      replace: SHERIFF
+
